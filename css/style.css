@@ -300,6 +300,10 @@ footer a:active
 {
   color: #F07A6A;
 }
+@viewport{
+    zoom: 1.0;
+    width: extend-to-zoom;
+}
 @media only screen and (max-width : 600px) {
 .navbar
 {
