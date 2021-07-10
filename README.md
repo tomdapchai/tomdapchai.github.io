@@ -1,3 +1,3 @@
 # tomdapchai.github.io
-Personal website
-Do it for experiments.
+<h1>Personal website</h1>
+<p>Do it for experiments.</p>
