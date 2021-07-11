@@ -14,6 +14,11 @@ body{
   font-family: 'Open Sans', sans-serif;
   margin:0;
 }
+/* Require for scale width */
+@viewport{
+  zoom: 1.0;
+  width: extend-to-zoom;
+}
 ::-webkit-scrollbar {
     width: 7px;
 }
@@ -35,16 +40,6 @@ body{
 ::-webkit-scrollbar-thumb:active, ::-webkit-scrollbar:active
 {
   width: 12px;
-}
-header{
-  background: #2A2D34;
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  display: flex;
-align-items: center;
-justify-content: center;
-
-color: #F8F4E3;
 }
 .top
 {
@@ -153,23 +148,52 @@ text-align: center;
   justify-content: center;
   box-sizing: border-box;
 }
-.home {text-align: center;}
+.home {
+  background-image: url(../img/gallery/photos/IMG_20210614_153448.jpg);
+  background-position: top;
+  background-size: cover;
+  text-align: center;
+  box-shadow: inset 0 0 100px black;
+  position: relative;
+}
+.welcome
+{
+  line-height: 1;
+  font-size:calc(10px + 2vw);
+  color: #0B0A07;
+}
+header{
+  background:transparent;
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-name
+{
+  color: var(--bg-third);
+}
+header a
+{
+  text-decoration: none;
+  color: #F8F4E3;
+}
 .home h1{  color: var(--bg-first);}
 .home h1:first-child
 {
   line-height: 0.5;
-  background: var(--bg-third);
+}
+.home-container
+{
+
+  background-color: rgba(0,0,0, 0.3); /* Black w/opacity/see-through */
 }
 #name
 {
   line-height: 0.1;
 }
-.home p
-{
-  line-height: 1;
-  font-size:calc(10px + 2vw);
-  color: var(--bg-second);
-}
+
 .home button{
   background: #EE6352;
   padding: calc(2px + 0.4vw);
@@ -203,14 +227,29 @@ background: #E93820;
 {
     color: var(--bg-second);
 }
-.bio p {text-align: center;
-color: var(--bg-third);}
 .gallery
 {
   background: #588157;
   position: relative;
   z-index: 1;
 }
+.gallery button{
+  background: #EE6352;
+  padding: calc(2px + 0.4vw);
+  color: var(--bg-third);
+  font-family: "Open Sans";
+  font-size: calc(6px + 1.8vw);
+  border-style: none;
+  box-shadow: 2px 2px 5px rgba(102,102,102,0.5 );
+  transition: background 0.25s;
+}
+.gallery button:hover{cursor: pointer;
+background: #E93820;
+-webkit-transform: scale(0.97);
+        -ms-transform: scale(0.97);
+        transform: scale(0.97);
+}
+.gallery button:active{background: #E93820;}
 .contact
 {
   background: var(--bg-third);
@@ -251,33 +290,33 @@ color: var(--bg-third);}
 .facebook
 {
   background: white;
-  background-image: url(../img/facebook.png);
+  background-image: url(../img/button/facebook.png);
   background-size: contain;
 }
 .telegram
 {
   background: white;
-  background-image: url(../img/telegram.png);
+  background-image: url(../img/button/telegram.png);
   background-size: contain;
 }
 .instagram
 {
   background: white;
   height: auto;
-  background-image: url(../img/instagram1.png);
+  background-image: url(../img/button/instagram1.png);
   background-size: cover;
   position: relative;
 }
 .youtube
 {
   background: #FF0000;
-  background-image: url(../img/youtube1.png);
+  background-image: url(../img/button/youtube1.png);
   background-size: contain;
 }
 .email
 {
   background: white;
-  background-image: url(../img/email1.png);
+  background-image: url(../img/button/email1.png);
   background-size: contain;
 }
 footer
@@ -308,10 +347,7 @@ footer a:active
 {
   cursor: default;
 }
-@viewport{
-    zoom: 1.0;
-    width: extend-to-zoom;
-}
+
 /* Mobiles device */
 @media only screen and (max-width : 600px) {
 .navbar
@@ -346,21 +382,32 @@ footer a:active
 header
 {
   height: 4rem;
-  font-size: 2rem;
+}
+.page-name
+{
+  font-size: 1.5rem;
+}
+.bio
+{
+  display: flex;
+  flex-direction: column;
 }
 .bio h1
 {
+  font-size: 4rem;
+  line-height: 0.5;
+}
+.bio h2
+{
   font-size: 3rem;
+  line-height: 0;
+  color: var(--bg-third);
 }
 .bio li
 {
   font-size: 1.2rem;
-  line-height: 1.25;
+  line-height: 1.2;
 
-}
-.bio p
-{
-  font-size: 1.7rem;
 }
 .gallery
 {
@@ -370,10 +417,15 @@ header
   display: flex;
   flex-direction: column;
 }
+.gallery p 
+{
+  font-size: 1.5rem;
+  color: var(--bg-second);
+}
 .gallery h1{
-  font-size: 2rem;
+  font-size: 2.7rem;
   font-weight: 400;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 }
 .pic1
 {
@@ -387,7 +439,7 @@ header
   transition: 400ms;
   box-shadow: 0 0 20px rgba(102,102,102,0.5);
   cursor: pointer;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 .pic1 img:hover
 {
@@ -400,16 +452,20 @@ header
 }
 .pic2 img
 {
-  width: 7rem;
+  width: 8rem;
   height: auto;
   transition: 400ms;
   box-shadow: 0 0 20px rgba(102,102,102,0.5);
   cursor: pointer;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 .pic2 img:hover
 {
   transform: scale(1.2);
+}
+.gallery button{
+  padding: calc(5px + 0.4vw);
+  font-size: calc(10px + 1.8vw);
 }
 .contact-button
 {
@@ -471,24 +527,47 @@ footer{
   header
   {
     height: 5rem;
+  }
+  .page-name
+  {
     font-size: 3.2rem;
   }
   .bio
   {
       line-height: 1.25;
   }
-  .bio h1
+  .hi
   {
-    font-size: 4rem;
+    float: left;
+    width: 20vw;
+  }
+  .hi h1{
+    font-size: 10vw;
+    line-height: 0.1;
+  }
+  .hi h2
+  {
+    font-size: 6vw;
+    color: var(--bg-third);
+  }
+  .hi
+  {
+    text-align: center;
+    margin-right: 7vw;
+    border-right: 0.5rem solid var(--bg-second);
+  }
+  .info
+  {
+    width: 65vw;
+    float:right;
+  }
+  .bio ul
+  {
+    list-style: square;
   }
   .bio li
   {
-    font-size: 2.5rem;
-    line-height: 1.25;
-  }
-  .bio p
-  {
-    font-size: 3rem;
+    font-size: 3.3vw;
   }
   .gallery
   {
@@ -497,10 +576,14 @@ footer{
     text-align: center;
     display: flex;
   }
+  .gallery button{
+    padding: calc(2px + 0.4vw);
+    font-size: calc(6px + 1.4vw);
+  }
   .gallery h1{
     font-size: 4.5rem;
   font-weight: 500;
-  padding-bottom: 4.5rem;
+  padding-bottom: 1.5rem;
   }
   .gallery p
   {
@@ -517,12 +600,12 @@ footer{
     width: 15rem;
     height: auto;
     transition: 400ms;
-    box-shadow: 0 0 100px rgba(102,102,102,0.5);
+    box-shadow: 0 0 30px rgba(102,102,102,0.5);
     cursor: pointer;
   }
   .pic1 img:hover
   {
-    transform: scale(1.3);
+    transform: scale(1.5);
   }
   .pic2
   {
@@ -532,15 +615,19 @@ footer{
   }
   .pic2 img
   {
-    width: 15rem;
+    width: 18rem;
     height: auto;
     transition: 400ms;
-    box-shadow: 0 0 100px rgba(102,102,102,0.5);
+    box-shadow: 0 0 30px rgba(102,102,102,0.5);
     cursor: pointer;
   }
   .pic2 img:hover
   {
-    transform: scale(1.3);
+    transform: scale(1.5);
+  }
+  .pic2-container
+  {
+    height: 15rem;
   }
   .contact-button
   {
@@ -564,8 +651,8 @@ footer{
   }
   .instagram::after
   {
-    content: url(../img/nametag.png);
-    background-image: url(../img/nametag.png);
+    content: url(../img/button/nametag.png);
+    background-image: url(../img/button/nametag.png);
     background-size: 18vw 18vw;
     display: block;
     position: absolute;
@@ -604,11 +691,47 @@ footer{
   header
   {
     height: 6rem;
+  }
+  .page-name
+  {
     font-size: 3.5rem;
   }
   .bio
   {
       line-height: 1.25;
+  }
+  .hi
+  {
+    float: left;
+    width: 20vw;
+  }
+  .hi h1{
+    font-size: 10vw;
+    line-height: 0.1;
+  }
+  .hi h2
+  {
+    font-size: 6vw;
+    color: var(--bg-third);
+  }
+  .hi
+  {
+    text-align: center;
+    margin-right: 7vw;
+    border-right: 0.75rem solid var(--bg-second);
+  }
+  .info
+  {
+    width: 65vw;
+    float:right;
+  }
+  .bio ul
+  {
+    list-style: square;
+  }
+  .bio li
+  {
+    font-size: 3.3vw;
   }
   .gallery
   {
@@ -633,7 +756,7 @@ footer{
     width: 20rem;
     height: auto;
     transition: 400ms;
-    box-shadow: 0 0 100px rgba(102,102,102,0.5);
+    box-shadow: 0 0 40px rgba(102,102,102,0.5);
     cursor: pointer;
   }
   .pic1 img:hover
@@ -645,13 +768,19 @@ footer{
     float: right;
     margin-left: 10rem;
     text-align: center;
+    width: auto;
+    height: 25rem;
+  }
+  .pic2-container
+  {
+    height: 20rem;
   }
   .pic2 img
   {
-    width: 20rem;
+    width: 25rem;
     height: auto;
     transition: 400ms;
-    box-shadow: 0 0 100px rgba(102,102,102,0.5);
+    box-shadow: 0 0 40px rgba(102,102,102,0.5);
     cursor: pointer;
   }
   .pic2 img:hover
@@ -680,8 +809,8 @@ footer{
   }
   .instagram::after
   {
-    content: url(../img/nametag.png);
-    background-image: url(../img/nametag.png);
+    content: url(../img/button/nametag.png);
+    background-image: url(../img/button/nametag.png);
     background-size: 18vw 18vw;
     display: block;
     position: absolute;
