@@ -8,6 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Staatliches&display=swap" rel="stylesheet">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VTT</title>
@@ -18,6 +21,8 @@
 <link rel="manifest" href="icon/site.webmanifest">
   </head>
 <body>
+  <script src="/js/script.js"></script>
+  <!--Menu-->
 <div class="menu-container">
 <nav class="navbar">
   <label class="menu" for="menu-cb">
@@ -44,15 +49,16 @@
       </a>
     </li>
     <li class="items">
-      <a href="#contact" class="link">
+      <a href="#connect" class="link">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M464 64H48C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h416c8.8 0 16 7.2 16 16v41.4c-21.9 18.5-53.2 44-150.6 121.3-16.9 13.4-50.2 45.7-73.4 45.3-23.2.4-56.6-31.9-73.4-45.3C85.2 197.4 53.9 171.9 32 153.4V112c0-8.8 7.2-16 16-16zm416 320H48c-8.8 0-16-7.2-16-16V195c22.8 18.7 58.8 47.6 130.7 104.7 20.5 16.4 56.7 52.5 93.3 52.3 36.4.3 72.3-35.5 93.3-52.3 71.9-57.1 107.9-86 130.7-104.7v205c0 8.8-7.2 16-16 16z"/></svg>
-        <span class="link-text">Contact</span>
+        <span class="link-text">Connect</span>
       </a>
     </li>
   </ul>
 </nav>
 </div>
-
+<!--Sections-->
+<!--Home-->
     <a id="home"><section class="fp home"></a>
       <header>
         <div><a href="https://tomdapchai.github.io"><p class="page-name">THANH TAM</p></a></div>
@@ -62,6 +68,7 @@
     <h1 id="name">my website</h1>
     <p class="welcome">Want to <a href="#bio"><button>learn more</button></a> about me?</p></div>
     </section>
+    <!--Bio-->
       <a id="bio"><section class="fp bio"></a>
         <div class="hi">
       <h1>hi,</h1>
@@ -74,6 +81,8 @@
           </div>
         <div class="skew-box bio-one"></div>
         <div class="skew-box bio-two"></div>
+        <div class="skew-box-reverse bio-three"></div>
+        <div class="skew-box-reverse bio-four"></div>
         </div>
       <div class="info">
       <ul>
@@ -84,6 +93,7 @@
       </ul>
       </div>
       </section>
+      <!--Gallery-->
         <a id="gallery"><section class="fp gallery"></a>
           <div class="gallery-container">
           <div class="cube"></div>
@@ -115,7 +125,8 @@
               </div>            
             </div>
         </section>
-        <a id="connect"><section class="fp connect"></a>
+        <!--Connect-->
+        <a id="connect"><section class="fp connect" onclick="javascript:myFunction();"></a>
           <div class="connect-container">
             <div class="cube"></div>
             <div class="cube"></div>
@@ -148,6 +159,7 @@
             </div>
           </div>
         </section>
+        <!--footer-->
       <footer>
         <p>&copy; 2021 - <em>Made by <a href="https://github.com/tomdapchai" target="_blank" rel="noopener noreferrer">@tomdapchai</a> with </em><a href="https://www.facebook.com/profile.php?id=100015155046521" rel="noopener noreferrer"target="_blank" class="love"> &#10084;&#65039;<a></p>
       </footer>

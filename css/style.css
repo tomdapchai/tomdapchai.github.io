@@ -12,6 +12,8 @@ body{
   background: var(--bg-third);
   font-family: 'Raleway', sans-serif;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Bebas Neue', cursive;
+  font-family: 'Staatliches', cursive;
   margin:0;
 }
 /* Require for scale width */
@@ -130,6 +132,7 @@ text-align: center;
   justify-content: center;
   box-sizing: border-box;
   overflow: hidden;
+  font-family: 'Open Sans';
 }
 .home {
   background-image: url(../img/gallery/photos/20210620_183502.jpg);
@@ -155,6 +158,7 @@ header{
 }
 .page-name
 {
+  font-family: 'Bebas Neue';
   color: var(--bg-third);
   margin: 0;
 }
@@ -273,7 +277,7 @@ background: #E93820;
 }
 .connect
 {
-  background: rgb(207,196,255);
+  background: #ff826f;
   text-align: center;
   position: relative;
   z-index: 1;
@@ -349,6 +353,7 @@ background: #E93820;
 }
 footer
 {
+  font-family: 'Open Sans';
   width: 100%;
   height: 5vh;
   color: var(--bg-third);
@@ -434,9 +439,95 @@ header
   font-size: 4rem;
   line-height: 0.5;
 }
-.bio-skewbox-container
+.hi-temp
 {
   display: none;
+}
+.skew-box
+{
+  width: 100vw;
+  height: 50vh;
+  transform: skewX(-45deg);
+  box-shadow: 4.5px 4.5px 7px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 2;
+}
+.skew-box-reverse
+{
+  width: 100vw;
+  height: 50vh;
+  transform: skewX(-45deg);
+  box-shadow: -4.5px 4.5px 7px rgba(0, 0, 0, 0.7);
+  position: absolute;
+  z-index: 2;
+}
+@keyframes move-one {
+  from
+  {
+    left: -80vw;
+  }
+  to
+  {
+    left: -90vw;
+  }
+}
+@keyframes move-two {
+  from
+  {
+    left: -110vw;
+  }
+  to
+  {
+    left: -120vw;
+  }
+}
+@keyframes move-three {
+  from
+  {
+    right: -93vw;
+  }
+  to
+  {
+    right: -100vw;
+  }
+}
+@keyframes move-four {
+  from
+  {
+    right: -123vw;
+  }
+  to
+  {
+    right: -130vw;
+  }
+}
+.bio-one
+{
+  top:0;
+  left: -80vw;
+  background: #FF836F;
+  animation: move-one 1000ms ease-in-out alternate infinite;
+}
+.bio-two
+{
+  top:0;
+  left: -110vw;
+  background: var(--bg-third);
+  animation: move-two 1000ms 200ms ease-in-out alternate infinite;
+}
+.bio-three
+{
+  bottom: 0;
+  right: -93vw;
+  background: var(--bg-third);
+  animation: move-three 1000ms ease-in-out alternate infinite;
+}
+.bio-four
+{
+  bottom: 0;
+  right: -123vw;
+  background: #FF836F;
+  animation: move-four 1000ms 200ms ease-in-out alternate infinite;
 }
 .bio h2
 {
@@ -518,6 +609,114 @@ header
 {
   transform: translate(1vh,1vh);
 }
+.gallery-container > .circle
+  {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    transform: scale(0);
+    background: transparent;
+    border: 1px solid var(--bg-second);
+    z-index: 1;
+    animation: circle 10000ms ease-in forwards infinite;
+  }
+  .gallery-container > .circle:nth-child(3)
+  {
+    top: 75vh;
+    right: 10vw;
+  }
+  .gallery-container > .circle:nth-child(5)
+  {
+    animation-delay: 1.5s;
+    left: 15vw;
+    top: 10vh;
+  }
+  .gallery-container > .circle:nth-child(7)
+  {
+    animation-delay: 3s;
+    left: 60vw;
+    top: 18vh;
+  }
+  .gallery-container > .circle:nth-child(9)
+  {
+    animation-delay: 4.5s;
+    left: 50vw;
+    top: 90vh;
+  }
+ .gallery-container > .cube {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: solid 1px rgb(255, 131, 111);
+    transform-origin: top left;
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    animation: cube 9s ease-in forwards infinite;
+  }
+  .gallery-container > .cube:nth-child(1)
+  {
+    top: 50vh;
+    right: 40vw;
+  }
+  .gallery-container > .cube:nth-child(2) {
+    animation-delay: 1s;
+    left: 10vw;
+    top: 40vh;
+  }
+  .gallery-container > .cube:nth-child(4) {
+    animation-delay: 2s;
+    left: 80vw;
+    top: 40vh;
+  }
+  .gallery-container > .cube:nth-child(6)
+  {
+    animation-delay: 3s;
+    left: 80vw;
+    top: 90vh;
+  }
+  .gallery-container > .cube:nth-child(8)
+  {
+    animation-delay: 4s;
+    left: 10vw;
+    bottom: 10vh;
+  }
+  .gallery-container > .cube:nth-child(10)
+  {
+    animation-delay: 5s;
+    right: 10vw;
+    top: 10vh;
+  }
+  @keyframes cube {
+    from 
+    {
+      transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+    }
+    to {
+      transform: scale(7) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+    }
+  }
+  @keyframes circle
+  {
+    from 
+    {
+      transform: scale(0);
+      opacity: 1;
+    }
+    to 
+    {
+      transform: scale(6);
+      opacity: 0;
+    }
+  }
+.connect h1
+{
+  font-size: 15vw;
+}
+.connect h2
+{
+  font-size: 6vw;
+}
 .connect-button
 {
   width: 40vw;
@@ -539,6 +738,129 @@ header
 .connect button:hover
 {
   box-shadow: 3.5px 3.5px 4.5px rgba(102,102,102,0.5 );
+}
+.connect-container > .circle
+  {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--bg-third);
+    position: absolute;
+    transform: translateY(0);
+    opacity: 0.7;
+    z-index: 1;
+  }
+  .connect-container > .circle:nth-child(3), .connect-container > .circle:nth-child(5)
+  {
+    animation: gallery-circle-1 4000ms ease-in-out alternate infinite;
+  }
+  .connect-container > .circle:nth-child(3)
+  {
+    top: 100vh;
+    right: 5vw;
+  }
+  .connect-container > .circle:nth-child(5)
+  {
+    animation-delay: 3s;
+    left: 27vw;
+    top: 100vh;
+  }
+  .connect-container > .circle:nth-child(7), .connect-container > .circle:nth-child(9)
+  {
+    animation: gallery-circle-2 4000ms ease-in-out alternate infinite;
+  }
+  .connect-container > .circle:nth-child(7)
+  {
+    left: 58vw;
+    top: -10vh;
+  }
+  .connect-container > .circle:nth-child(9)
+  {
+    animation-delay: 2.5s;
+    left: 5vw;
+    top: -10vh;
+  }
+  .connect-container > .cube {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: solid 1px var(--bg-second);
+    transform-origin: top left;
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    animation: cube 10s ease-in forwards infinite;
+  }
+  .connect-container > .cube:nth-child(1)
+  {
+    top: 50vh;
+    right: 40vw;
+  }
+  .connect-container > .cube:nth-child(2) {
+    animation-delay: 2s;
+    left: 50vw;
+    top: 70vh;
+  }
+  .connect-container > .cube:nth-child(4) {
+    animation-delay: 4s;
+    left: 80vw;
+    top: 40vh;
+  }
+  .connect-container > .cube:nth-child(6)
+  {
+    animation-delay: 6s;
+    left: 50vw;
+    top: 10vh;
+  }
+  .connect-container > .cube:nth-child(8)
+  {
+    animation-delay: 8s;
+    left: 10vw;
+    bottom: 10vh;
+  }
+  .connect-container > .cube:nth-child(10)
+  {
+    animation-delay: 10s;
+    right: 10vw;
+    top: 10vh;
+  }
+  .connect-container > .cube:nth-child(11)
+  {
+    animation-delay: 2s;
+    right: 13vw;
+    top: 90vh;
+  }
+  .connect-container > .cube:nth-child(12)
+  {
+    animation-delay: 4s;
+    right: 50vw;
+    top: 90vh;
+  }
+  .connect-container > .cube:nth-child(13)
+  {
+    animation-delay: 6s;
+    right: 85vw;
+    top: 5vh;
+  }
+  @keyframes gallery-circle-1
+{
+  from
+  {
+    transform: translateY(0);
+  }
+  to 
+  {
+    transform: translateY(-110vh);
+  }
+}
+@keyframes gallery-circle-2
+{
+  from
+  {
+    transform: translateY(0);
+  }
+  to
+  {
+    transform: translateY(120vh);
+  }
 }
 footer{
   font-size: 0.6rem;
@@ -806,6 +1128,13 @@ footer{
     height: 100vh;
     position: absolute;
   }
+  .skew-box-reverse
+  {
+    transform: skewX(-15deg);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+  }
   .bio-one
   {
     background: var(--bg-second);
@@ -930,19 +1259,6 @@ footer{
     left: 50vw;
     top: 90vh;
   }
-  @keyframes circle
-  {
-    from 
-    {
-      transform: scale(0);
-      opacity: 1;
-    }
-    to 
-    {
-      transform: scale(10);
-      opacity: 0;
-    }
-  }
  .gallery-container > .cube {
     position: absolute;
     width: 10px;
@@ -994,6 +1310,19 @@ footer{
     to {
       transform: scale(15) rotate(1080deg) translate(-50%, -50%);
     opacity: 0;
+    }
+  }
+  @keyframes circle
+  {
+    from 
+    {
+      transform: scale(0);
+      opacity: 1;
+    }
+    to 
+    {
+      transform: scale(10);
+      opacity: 0;
     }
   }
   .gallery h2
@@ -1051,6 +1380,9 @@ footer{
   .photos-container:hover .pic3
   {
     transform: translate(2vh, 2vh);
+  }  .connect h2
+  {
+    font-size: 3rem;
   }
   .connect-container > .circle
   {
@@ -1062,10 +1394,6 @@ footer{
     transform: translateY(0);
     opacity: 0.7;
     z-index: 1;
-  }
-  .connect h2
-  {
-    font-size: 3rem;
   }
   .connect-container > .circle:nth-child(3), .connect-container > .circle:nth-child(5)
   {
@@ -1096,28 +1424,6 @@ footer{
     animation-delay: 2.5s;
     left: 30vw;
     top: -10vh;
-  }
-  @keyframes gallery-circle-1
-  {
-    from
-    {
-      transform: translateY(0);
-    }
-    to 
-    {
-      transform: translateY(-110vh);
-    }
-  }
-  @keyframes gallery-circle-2
-  {
-    from
-    {
-      transform: translateY(0);
-    }
-    to
-    {
-      transform: translateY(120vh);
-    }
   }
   .connect-container > .cube {
     position: absolute;
@@ -1197,6 +1503,28 @@ footer{
     right: 10vw;
     top: 40vh;
   }
+  @keyframes gallery-circle-1
+{
+  from
+  {
+    transform: translateY(0);
+  }
+  to 
+  {
+    transform: translateY(-110vh);
+  }
+}
+@keyframes gallery-circle-2
+{
+  from
+  {
+    transform: translateY(0);
+  }
+  to
+  {
+    transform: translateY(120vh);
+  }
+}
   .connect-button
   {
     width: 40vw;
