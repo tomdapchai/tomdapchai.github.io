@@ -579,6 +579,7 @@ header
   width: 7rem;
   height: auto;
   transition: 400ms;
+  border: 2px solid black;
   box-shadow: 0 0 20px rgba(102,102,102,0.5);
   cursor: pointer;
 }
@@ -1873,7 +1874,7 @@ footer{
   font-size: 1.1rem;
 }
 }
-/* Desktops and laptops ----------- */
+/* Desktops and laptops */
 @media only screen  and (min-width : 1224px) and (max-width : 1823px) {
   .navbar
   {
@@ -1919,6 +1920,86 @@ footer{
   .bio
   {
       line-height: 1.25;
+      position: relative;
+  }
+  .bio-skewbox-container
+  {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 5;
+    display: flex;
+  }
+  .hi-temp
+  {
+    position: absolute;
+    left: 15vw;
+    z-index: 3;
+    align-self: center;
+  }
+  .hi-temp h1
+  {
+    color: var(--bg-third);
+    font-size: 11vw;
+    line-height: 0.1;
+    transition: 400ms;
+    transition-delay: 600ms;
+  }
+  .hi-temp h2
+  {
+    color: var(--bg-third);
+    font-size: 6vw;
+    transition: 400ms;
+    transition-delay: 600ms;
+  }
+  .bio-skewbox-container > .skew-box
+  {
+    transform: skewX(-15deg);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+  }
+  .skew-box-reverse
+  {
+    transform: skewX(-15deg);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+  }
+  .bio-one
+  {
+    background: var(--bg-second);
+    z-index: 2;
+    left: -10vw;
+    transition: 600ms;
+    transition-delay: 600ms;
+  }
+  .bio-two
+  {
+    background: rgb(255, 131, 111);
+    box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.6);
+    z-index: 4;
+    left: -70vw;
+    transition: 400ms;
+  }
+  .bio-skewbox-container:hover .bio-one
+  {
+    background: rgb(255, 131, 111);
+    box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.5);
+    left: -70vw;
+  }
+  .bio-skewbox-container:hover .bio-two
+  {
+    background: rgba(248, 244, 227, 1);
+    left: -90vw;
+  }
+  .bio-skewbox-container:hover .hi-temp h1
+  {
+    color: var(--bg-second);
+  }
+  .bio-skewbox-container:hover .hi-temp h2
+  {
+    color: var(--bg-second);
   }
   .hi
   {
@@ -1936,17 +2017,16 @@ footer{
   .hi
   {
     text-align: center;
-    margin-right: 7vw;
-    border-right: 0.5rem solid var(--bg-second);
+    margin-right: 10vw;
   }
   .info
   {
-    width: 65vw;
+    width: 55vw;
     float:right;
   }
   .bio li
   {
-    font-size: 3.3vw;
+    font-size: 2.8vw;
   }
   .gallery
   {
@@ -1954,14 +2034,110 @@ footer{
     text-align: center;
     display: flex;
   }
-  .gallery button{
-    padding: calc(2px + 0.4vw) calc(5px + 0.7vw);
-    font-size: calc(6px + 1.4vw);
-  }
   .gallery h1{
     font-size: 5.5rem;
   font-weight: 500;
   margin: 5vh 0 2rem 0;
+  }
+  .gallery-container > .circle
+  {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    transform: scale(0);
+    background: transparent;
+    border: 1px solid var(--bg-second);
+    z-index: 1;
+    animation: circle 10000ms ease-in forwards infinite;
+  }
+  .gallery-container > .circle:nth-child(3)
+  {
+    top: 75vh;
+    right: 10vw;
+  }
+  .gallery-container > .circle:nth-child(5)
+  {
+    animation-delay: 1.5s;
+    left: 15vw;
+    top: 10vh;
+  }
+  .gallery-container > .circle:nth-child(7)
+  {
+    animation-delay: 3s;
+    left: 60vw;
+    top: 18vh;
+  }
+  .gallery-container > .circle:nth-child(9)
+  {
+    animation-delay: 4.5s;
+    left: 50vw;
+    top: 90vh;
+  }
+ .gallery-container > .cube {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: solid 1px rgb(255, 131, 111);
+    transform-origin: top left;
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    animation: cube 8s ease-in forwards infinite;
+  }
+  .gallery-container > .cube:nth-child(1)
+  {
+    top: 50vh;
+    right: 40vw;
+  }
+  .gallery-container > .cube:nth-child(2) {
+    animation-delay: 1.3s;
+    left: 10vw;
+    top: 40vh;
+  }
+  .gallery-container > .cube:nth-child(4) {
+    animation-delay: 2.6s;
+    left: 80vw;
+    top: 40vh;
+  }
+  .gallery-container > .cube:nth-child(6)
+  {
+    animation-delay: 3.9s;
+    left: 50vw;
+    top: 10vh;
+  }
+  .gallery-container > .cube:nth-child(8)
+  {
+    animation-delay: 5.2s;
+    left: 10vw;
+    bottom: 10vh;
+  }
+  .gallery-container > .cube:nth-child(10)
+  {
+    animation-delay: 6.5s;
+    right: 10vw;
+    top: 10vh;
+  }
+  @keyframes cube {
+    from 
+    {
+      transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+    }
+    to {
+      transform: scale(15) rotate(1080deg) translate(-50%, -50%);
+    opacity: 0;
+    }
+  }
+  @keyframes circle
+  {
+    from 
+    {
+      transform: scale(0);
+      opacity: 1;
+    }
+    to 
+    {
+      transform: scale(10);
+      opacity: 0;
+    }
   }
   .digital
   {
@@ -1971,15 +2147,16 @@ footer{
   }
   .digital img
   {
-    width: 15rem;
+    width: 18vw;
     height: auto;
     transition: 400ms;
+    border: 3px solid black;
     box-shadow: 0 0 30px rgba(102,102,102,0.5);
     cursor: pointer;
   }
   .digital-container
   {
-    width: 36.1vw;
+    width: 40vw;
     display: flex;
     justify-content: space-between;
   }
@@ -2014,6 +2191,155 @@ footer{
   .photos-container:hover .pic3
   {
     transform: translate(2vh, 2vh);
+  }
+  .connect-container > .circle
+  {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--bg-third);
+    position: absolute;
+    transform: translateY(0);
+    opacity: 0.7;
+    z-index: 1;
+  }
+  .connect-container > .circle:nth-child(3), .connect-container > .circle:nth-child(5)
+  {
+    animation: gallery-circle-1 4000ms ease-in-out alternate infinite;
+  }
+  .connect-container > .circle:nth-child(3)
+  {
+    top: 100vh;
+    right: 10vw;
+  }
+  .connect-container > .circle:nth-child(5)
+  {
+    animation-delay: 3s;
+    left: 15vw;
+    top: 100vh;
+  }
+  .connect-container > .circle:nth-child(7), .connect-container > .circle:nth-child(9)
+  {
+    animation: gallery-circle-2 4000ms ease-in-out alternate infinite;
+  }
+  .connect-container > .circle:nth-child(7)
+  {
+    left: 60vw;
+    top: -10vh;
+  }
+  .connect-container > .circle:nth-child(9)
+  {
+    animation-delay: 2.5s;
+    left: 30vw;
+    top: -10vh;
+  }
+  .connect-container > .cube {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: solid 1px var(--bg-second);
+    transform-origin: top left;
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    animation: cube 10s ease-in forwards infinite;
+  }
+  .connect-container > .cube:nth-child(1)
+  {
+    top: 50vh;
+    right: 40vw;
+  }
+  .connect-container > .cube:nth-child(2) {
+    animation-delay: 2s;
+    left: 10vw;
+    top: 40vh;
+  }
+  .connect-container > .cube:nth-child(4) {
+    animation-delay: 4s;
+    left: 80vw;
+    top: 40vh;
+  }
+  .connect-container > .cube:nth-child(6)
+  {
+    animation-delay: 6s;
+    left: 50vw;
+    top: 10vh;
+  }
+  .connect-container > .cube:nth-child(8)
+  {
+    animation-delay: 8s;
+    left: 10vw;
+    bottom: 10vh;
+  }
+  .connect-container > .cube:nth-child(10)
+  {
+    animation-delay: 10s;
+    right: 10vw;
+    top: 10vh;
+  }
+  .connect-container > .cube:nth-child(11)
+  {
+    animation-delay: 2s;
+    right: 13vw;
+    top: 90vh;
+  }
+  .connect-container > .cube:nth-child(12)
+  {
+    animation-delay: 4s;
+    right: 50vw;
+    top: 90vh;
+  }
+  .connect-container > .cube:nth-child(13)
+  {
+    animation-delay: 6s;
+    right: 85vw;
+    top: 5vh;
+  }
+  .connect-container > .cube:nth-child(14)
+  {
+    animation-delay: 8s;
+    right: 52vw;
+    top: 57vh;
+  }
+  .connect-container > .cube:nth-child(15)
+  {
+    animation-delay: 10;
+    right: 66vw;
+    top: 81vh;
+  }
+  .connect-container > .cube:nth-child(16)
+  {
+    animation-delay: 2s;
+    right: 10vw;
+    top: 40vh;
+  }
+  @keyframes gallery-circle-1
+{
+  from
+  {
+    transform: translateY(0);
+  }
+  to 
+  {
+    transform: translateY(-110vh);
+  }
+}
+@keyframes gallery-circle-2
+{
+  from
+  {
+    transform: translateY(0);
+  }
+  to
+  {
+    transform: translateY(120vh);
+  }
+}
+  .connect h1
+  {
+    font-size: 7rem;
+  }
+  .connect h2
+  {
+    font-size: 3rem;
   }
   .connect-button
   {
