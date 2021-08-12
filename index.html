@@ -22,9 +22,11 @@
   </head>
 <body>
   <script>
-    function removeHash () { 
-  history.replaceState("", document.title, window.location.pathname + window.location.search);
-}
+    function removehash(){
+        setTimeout(function(){
+            history.replaceState("", document.title, window.location.pathname);
+        }, 1);
+    }
 function myFunction() { 
     var e = document.querySelector('.connect');
     var c = window.getComputedStyle(e).backgroundColor;
